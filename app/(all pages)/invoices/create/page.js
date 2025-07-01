@@ -13,6 +13,7 @@ export default function CreateInvoicePage() {
 
   const [customers, setCustomers] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  
   const [error, setError] = useState('')
 
   const [success, setSuccess] = useState('')
@@ -49,7 +50,7 @@ export default function CreateInvoicePage() {
           amount: parseFloat(formData.amount),
           status: formData.status,
         }),
-      });
+      })
 
       if (response.ok) {
         setSuccess('Invoice created successfully!');
@@ -60,28 +61,28 @@ export default function CreateInvoicePage() {
         const data = await response.json();
         setError(data.error || 'Failed to create invoice');
       }
+      
     } catch (error) {
       setError('An error occurred. Please try again.');
     } finally {
-      setIsLoading(false);
-    }
+      setIsLoading(false)  }
   }
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   return (
     <div className="space-y-6">
       <div className="flex items-center space-x-4">
         <Link 
           href="/dashboard/invoices"
-          className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-        >
+          className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
           <ArrowLeft className="w-5 h-5 text-gray-600" />
+            
         </Link>
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Create New Invoice</h1>
@@ -93,9 +94,11 @@ export default function CreateInvoicePage() {
         <div className="card">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
+            
               <label className="label">Customer</label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            
+             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <User className="h-5 w-5 text-gray-400" />
                 </div>
                 <select
@@ -103,17 +106,16 @@ export default function CreateInvoicePage() {
                   value={formData.customerId}
                   onChange={handleChange}
                   className="input pl-10"
-                  required
-                >
+                  required>
+                    
                   <option value="">Select a customer</option>
                   {customers.map((customer) => (
                     <option key={customer.id} value={customer.id}>
                       {customer.name} ({customer.email})
                     </option>
-                  ))}
+               ))}
                 </select>
-              </div>
-            </div>
+              </div>    </div>
 
             <div>
               <label className="label">Amount</label>
@@ -146,8 +148,8 @@ export default function CreateInvoicePage() {
                   value={formData.status}
                   onChange={handleChange}
                   className="input pl-10"
-                  required
-                >
+                  required >
+                    
                   <option value="pending">Pending</option>
                   <option value="paid">Paid</option>
                 </select>
