@@ -13,11 +13,11 @@ export async function GET() {
     
     
    // console.log('Clearing existing data');
-    await db.delete(invoices)
-    await db.delete(customers)
-    await db.delete(users)
+    // await db.delete(invoices)
+    // await db.delete(customers)
+    // await db.delete(users)
 
-    await db.delete(revenue)
+    // await db.delete(revenue)
 
     
    // console.log('Seeding users')
