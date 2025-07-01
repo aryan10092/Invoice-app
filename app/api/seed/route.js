@@ -2,12 +2,13 @@ import { db } from '@/lib/db'
 import { users, customers, invoices, revenue } from '@/lib/db/schema'
 import bcrypt from 'bcryptjs'
 import { NextResponse } from 'next/server'
+import { sql } from 'drizzle-orm'
 
 export async function GET() {
   try {
     //console.log('Starting database seeding');
     
-   
+   await db.execute(sql`TRUNCATE TABLE invoices, customers, users, revenue RESTART IDENTITY CASCADE`)
     console.log('Testing database connection')
     
     
