@@ -23,7 +23,7 @@ export default function RecentInvoices({ invoices }) {
           <p className="text-sm text-gray-600">Latest 5 invoices created</p>
         </div>
         <Link 
-          href="/dashboard/invoices"
+          href="/invoices"
           className="flex items-center text-primary-600 hover:text-primary-700 text-sm font-medium"
         >
           View all
