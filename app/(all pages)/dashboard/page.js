@@ -5,6 +5,8 @@ import DashboardStats from '@/components/dashboard/DashboardStats';
 import RevenueChart from '@/components/dashboard/RevenueChart';
 import RecentInvoices from '@/components/dashboard/RecentInvoices';
 
+export const dynamic = 'force-dynamic';
+
 async function getDashboardData() {
   try {
     
