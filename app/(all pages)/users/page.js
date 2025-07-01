@@ -41,10 +41,9 @@ export default function UsersPage() {
   useEffect(() => {
     const filtered = users.filter(user =>
       user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.email.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredUsers(filtered);
-  }, [users, searchTerm]);
+      user.email.toLowerCase().includes(searchTerm.toLowerCase()) )
+    setFilteredUsers(filtered)
+  }, [users, searchTerm])
 
   if (loading) {
     return (
@@ -52,37 +51,37 @@ export default function UsersPage() {
         <div className="flex items-center justify-center py-12">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
           <span className="ml-2 text-gray-600">Loading users...</span>
-        </div>
-      </div>
-    );
+        </div></div>
+    )
   }
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
+    
           <h1 className="text-2xl font-bold text-gray-900">Users</h1>
           <p className="text-gray-600">Manage system users and their access</p>
         </div>
         <div className="flex items-center space-x-3">
           <button
             onClick={fetchUsers}
-            className="btn-secondary flex items-center space-x-2"
-          >
+            className="btn-secondary flex items-center space-x-2" >
             <RefreshCw className="w-4 h-4" />
             <span>Refresh</span>
+              
           </button>
           <Link 
-            href="/dashboard/users/create"
-            className="btn-primary flex items-center space-x-2"
-          >
+            href="/users/create"
+            className="btn-primary flex items-center space-x-2" >
+              
             <Plus className="w-4 h-4" />
             <span>Add User</span>
           </Link>
         </div>
       </div>
 
-      {/* Search Bar */}
+      
       <div className="card">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -109,7 +108,8 @@ export default function UsersPage() {
               <tr className="border-b border-gray-200">
                 <th className="text-left py-3 px-4 font-semibold text-gray-900">User</th>
                 <th className="text-left py-3 px-4 font-semibold text-gray-900">Email</th>
-                <th className="text-left py-3 px-4 font-semibold text-gray-900">Created</th>
+                <th className="text-left py-3 px-4 font-semibold text-gray-900">Created
+                </th>
                 <th className="text-left py-3 px-4 font-semibold text-gray-900">Actions</th>
               </tr>
             </thead>
