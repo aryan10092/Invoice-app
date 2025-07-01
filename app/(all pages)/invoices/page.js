@@ -31,19 +31,17 @@ export default function InvoicesPage() {
       setError('Failed to fetch invoices');
     } finally {
       setLoading(false);
-    }
-  };
+    }  }
 
   useEffect(() => {
     fetchInvoices();
-  }, []);
+  }, [])
 
   useEffect(() => {
     let filtered = invoices.filter(invoice =>
       invoice.customerName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       invoice.customerEmail.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      invoice.id.toString().includes(searchTerm)
-    );
+      invoice.id.toString().includes(searchTerm)  )
 
     if (statusFilter !== 'all') {
       filtered = filtered.filter(invoice => invoice.status === statusFilter);
@@ -90,14 +88,12 @@ export default function InvoicesPage() {
             <span>Refresh</span>
           </button>
           <Link 
-            href="/dashboard/invoices/create"
-            className="btn-primary flex items-center space-x-2"
-          >
+            href="/invoices/create"
+            className="btn-primary flex items-center space-x-2" >
             <Plus className="w-4 h-4" />
             <span>Create Invoice</span>
           </Link>
-        </div>
-      </div>
+        </div> </div>
 
       <div className="card">
         <div className="flex items-center space-x-4">
@@ -108,14 +104,14 @@ export default function InvoicesPage() {
               placeholder="Search invoices by customer name, email, or ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg 
+                focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
             />
           </div>
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
-          >
+            className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none" >
             <option value="all">All Status</option>
             <option value="paid">Paid</option>
             <option value="pending">Pending</option>
