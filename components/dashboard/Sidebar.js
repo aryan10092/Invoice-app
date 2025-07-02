@@ -20,11 +20,14 @@ const navigation = [
   { name: 'Create Invoice', href: '/invoices/create', icon: Plus },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({open,close}) {
   const pathname = usePathname();
 
   return (
-    <div className="fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 lg:block hidden">
+      <div
+      className={
+        `fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 transition-transform duration-300 lg:translate-x-0 lg:block ` +
+        (open ? 'translate-x-0' : '-translate-x-full') + ' ' +'lg:static lg:inset-auto lg:transform-none' } >
       <div className="flex h-16 items-center justify-center border-b border-gray-800">
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
@@ -49,6 +52,7 @@ export default function Sidebar() {
                   ? 'bg-primary-600 text-white'
                   : 'text-gray-300 hover:bg-gray-800 hover:text-white'
               )}
+                onClick={close}
             >
               <Icon className="w-5 h-5" />
               <span>{item.name}</span>
