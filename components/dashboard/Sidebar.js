@@ -27,7 +27,7 @@ export default function Sidebar({open,close}) {
       <div
       className={
         `fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 transition-transform duration-300 lg:translate-x-0 lg:block ` +
-        (open ? 'translate-x-0' : '-translate-x-full') + ' ' +'lg:static lg:inset-auto lg:transform-none' } >
+        (open ? 'translate-x-0' : '-translate-x-full') } >
       <div className="flex h-16 items-center justify-center border-b border-gray-800">
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
