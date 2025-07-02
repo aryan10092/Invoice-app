@@ -1,8 +1,8 @@
 'use client';
 
-import { Bell, Search, User } from 'lucide-react';
+import { Bell, Search, User,MenuIcon } from 'lucide-react';
 
-export default function Header() {
+export default function Header({toggle}) {
   return (
     <header className="bg-white border-b border-gray-200 h-16">
       <div className="flex items-center justify-between h-full px-6">
@@ -15,6 +15,8 @@ export default function Header() {
               className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
             />
           </div> */}
+         <MenuIcon  onClick={toggle}
+          className='lg:hidden'/>
         </div>
 
         <div className="flex items-center space-x-4">
