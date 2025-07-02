@@ -13,7 +13,7 @@ export default function DashboardLayout({ children }) {
     <div className="min-h-screen bg-gray-50">
       <Sidebar open={sidebarOpen} close={closeSidebar} />
       <div className="lg:pl-64">
-        <Headertoggle={toggleSidebar} />
+        <Headertoggle toggle={toggleSidebar} />
         <main className="p-6">
           {children}
         </main>
